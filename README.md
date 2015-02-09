@@ -64,6 +64,7 @@ If you would like to contribute then
 ##Credits
 
 [Ko Thura Hlaing](https://github.com/trhura) for his excellent [paytan](://github.com/trhura/paytan) converter generator.
+[Green Like Orange](https://github.com/greenlikeorange) for showing his js font detection code
 
 ##LICENSE
 
