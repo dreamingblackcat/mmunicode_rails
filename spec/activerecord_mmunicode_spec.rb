@@ -24,7 +24,7 @@ describe AcitveRecordMmunicode do
 	it "raise error if the field_types are not text or string" do
 		-> {
 			class Book < ActiveRecord::Base
-				include AcitveRecordMmunicode
+				# include AcitveRecordMmunicode
 	
 				mm_unicodify :age
 			end

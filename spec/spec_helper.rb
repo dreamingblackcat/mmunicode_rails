@@ -1,5 +1,5 @@
-require_relative "../lib/acitverecord_mmunicode.rb"
 require 'active_record'
+require_relative "../lib/acitverecord_mmunicode.rb"
 require 'sqlite3'
 require 'yaml'
 
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(:version => 0) do
 end
 
 class Post < ActiveRecord::Base
-	include AcitveRecordMmunicode
+	
 	mm_unicodify :title,:body
 
 end

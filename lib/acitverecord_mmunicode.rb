@@ -265,4 +265,18 @@ module AcitveRecordMmunicode
 	    receiver.extend         ClassMethods
 	    receiver.send :include, InstanceMethods
     end
+    if defined?(Rails::Railtie)
+      class Railtie < Rails::Railtie
+        initializer 'acitverecord_mmunicode.insert_into_active_record' do
+          ActiveSupport.on_load :active_record do
+            ActiveRecord::Base.send(:include, AcitveRecordMmunicode)
+          end
+        end
+      end
+    else
+      ActiveRecord::Base.send(:include, AcitveRecordMmunicode) if defined?(ActiveRecord)
+    end
 end
+
+ 
+
