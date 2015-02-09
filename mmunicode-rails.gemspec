@@ -1,15 +1,15 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'acitverecord_mmunicode/version'
+require 'mmunicode_rails/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "mmunicode-rails"
-  spec.version       = AcitveRecordMmunicode::VERSION
+  spec.version       = Mmunicode::VERSION
   spec.authors       = ["dreamingblackcat"]
   spec.email         = ["dreamingblackcat10@gmail.com"]
   spec.summary       = %q{A gem that provide converting model attributes from zawgyi to unicode(conflicted fonts in myanmar country)}
-  spec.description   = %q{acitverecord_mmunicode provides a class macro for activerecord which allows designated string fields to convert from zawgyi font to unicode font before saving.}
+  spec.description   = %q{mmunicode_rails provides a class macro for activerecord which allows designated string fields to convert from zawgyi font to unicode font before saving.}
   spec.homepage      = ""
   spec.license       = "GPL"
 

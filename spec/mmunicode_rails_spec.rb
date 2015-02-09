@@ -2,7 +2,7 @@ require_relative "spec_helper.rb"
 require "minitest/autorun"
 
 
-describe AcitveRecordMmunicode do
+describe Mmunicode do
     	
     let(:data) do
     	{
@@ -17,18 +17,16 @@ describe AcitveRecordMmunicode do
 
 	let(:post) {Post.new({title: data[:zawgyi_title],body: data[:unicode_body]})}
 
-	it "adds the #mm_unicodify method to the included class" do
-		Post.must_respond_to :mm_unicodify
+	it "adds the #mmunicode_convert method to the included class" do
+		Post.must_respond_to :mmunicode_convert
 	end
 
 	it "raise error if the field_types are not text or string" do
 		-> {
 			class Book < ActiveRecord::Base
-				# include AcitveRecordMmunicode
-	
-				mm_unicodify :age
+				mmunicode_convert :age
 			end
-			}.must_raise AcitveRecordMmunicode::NotSupportedForNonStringTypesError
+			}.must_raise Mmunicode::NotSupportedForNonStringTypesError
 	end
 
 	describe "Converting Inputs" do

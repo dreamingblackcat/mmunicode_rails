@@ -1,5 +1,5 @@
 require 'active_record'
-require_relative "../lib/acitverecord_mmunicode.rb"
+require_relative "../lib/mmunicode_rails.rb"
 require 'sqlite3'
 require 'yaml'
 
@@ -23,6 +23,6 @@ end
 
 class Post < ActiveRecord::Base
 	
-	mm_unicodify :title,:body
+	mmunicode_convert :title,:body
 
 end

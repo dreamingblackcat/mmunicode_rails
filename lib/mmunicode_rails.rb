@@ -1,9 +1,9 @@
-require "acitverecord_mmunicode/version"
+require "mmunicode_rails/version"
 
-module AcitveRecordMmunicode
+module Mmunicode
 
 	module ClassMethods
-	     def mm_unicodify(*fields)
+	     def mmunicode_convert(*fields)
 	     	fields.each do |field|
 	     		field_type = self.columns_hash[field.to_s].type
 	     		unless field_type == :string || field_type == :text then
@@ -267,14 +267,14 @@ module AcitveRecordMmunicode
     end
     if defined?(Rails::Railtie)
       class Railtie < Rails::Railtie
-        initializer 'acitverecord_mmunicode.insert_into_active_record' do
+        initializer 'mmunicode_rails.insert_into_active_record' do
           ActiveSupport.on_load :active_record do
-            ActiveRecord::Base.send(:include, AcitveRecordMmunicode)
+            ActiveRecord::Base.send(:include, Mmunicode)
           end
         end
       end
     else
-      ActiveRecord::Base.send(:include, AcitveRecordMmunicode) if defined?(ActiveRecord)
+      ActiveRecord::Base.send(:include, Mmunicode) if defined?(ActiveRecord)
     end
 end
 
