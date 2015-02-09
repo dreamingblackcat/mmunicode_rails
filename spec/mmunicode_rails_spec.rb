@@ -2,7 +2,7 @@ require_relative "spec_helper.rb"
 require "minitest/autorun"
 
 
-describe Mmunicode do
+describe Mmunicode::ActiveRecordMacro do
     	
     let(:data) do
     	{
@@ -26,7 +26,7 @@ describe Mmunicode do
 			class Book < ActiveRecord::Base
 				mmunicode_convert :age
 			end
-			}.must_raise Mmunicode::NotSupportedForNonStringTypesError
+			}.must_raise Mmunicode::ActiveRecordMacro::NotSupportedForNonStringTypesError
 	end
 
 	describe "Converting Inputs" do

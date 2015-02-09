@@ -2,24 +2,7 @@ require "mmunicode_rails/version"
 
 module Mmunicode
 
-	module ClassMethods
-	     def mmunicode_convert(*fields)
-	     	fields.each do |field|
-	     		field_type = self.columns_hash[field.to_s].type
-	     		unless field_type == :string || field_type == :text then
-	     			raise NotSupportedForNonStringTypesError.new(field_type),"#{field_type} is not supported.Supported types are :string and :text" 
-	     		end
-	     	end
-	        before_save do
-	          fields.each do|field|
-	            zg = self.send(field.to_sym)
-	            self.send("#{field}=".to_sym,zg12uni51(zg))
-	          end
-	        end
-	     end
-	end
-  
-	module InstanceMethods
+	module Core		
 	    def uni512zg1(input_text)
 	      return input_text unless detect_font(input_text) == :uni
 	      output_text = input_text
@@ -254,27 +237,46 @@ module Mmunicode
 	          result.first[:name]
 	    end
 	end
-
-	class NotSupportedForNonStringTypesError < StandardError 
-		def initialize(object)
-		    @object = object
+	module ActiveRecordMacro
+		module ClassMethods
+		     def mmunicode_convert(*fields)
+		     	fields.each do |field|
+		     		field_type = self.columns_hash[field.to_s].type
+		     		unless field_type == :string || field_type == :text then
+		     			raise NotSupportedForNonStringTypesError.new(field_type),"#{field_type} is not supported.Supported types are :string and :text" 
+		     		end
+		     	end
+		        before_save do
+		          fields.each do|field|
+		            zg = self.send(field.to_sym)
+		            self.send("#{field}=".to_sym,zg12uni51(zg))
+		          end
+		        end
+		     end
 		end
-	end
   
-    def self.included(receiver)
-	    receiver.extend         ClassMethods
-	    receiver.send :include, InstanceMethods
-    end
-    if defined?(Rails::Railtie)
-      class Railtie < Rails::Railtie
-        initializer 'mmunicode_rails.insert_into_active_record' do
-          ActiveSupport.on_load :active_record do
-            ActiveRecord::Base.send(:include, Mmunicode)
-          end
-        end
-      end
-    else
-      ActiveRecord::Base.send(:include, Mmunicode) if defined?(ActiveRecord)
+	  	class NotSupportedForNonStringTypesError < StandardError 
+			def initialize(object)
+			    @object = object
+			end
+		end
+  
+	    def self.included(receiver)
+		    receiver.extend         ClassMethods
+		    receiver.send :include, Mmunicode::Core
+	    end
+
+	    if defined?(Rails::Railtie)
+	      class Railtie < Rails::Railtie
+	        initializer 'mmunicode_rails.insert_into_active_record' do
+	          ActiveSupport.on_load :active_record do
+	            ActiveRecord::Base.send(:include, Mmunicode::ActiveRecordMacro)
+	          end
+	        end
+	      end
+	    else
+	      ActiveRecord::Base.send(:include, Mmunicode::ActiveRecordMacro) if defined?(ActiveRecord)
+	    end
     end
 end
 
