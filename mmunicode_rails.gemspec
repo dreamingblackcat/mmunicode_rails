@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'mmunicode_rails/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "mmunicode-rails"
+  spec.name          = "mmunicode_rails"
   spec.version       = MmunicodeRails::VERSION
   spec.authors       = ["dreamingblackcat"]
   spec.email         = ["dreamingblackcat10@gmail.com"]

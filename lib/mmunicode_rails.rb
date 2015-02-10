@@ -280,7 +280,7 @@ module MmunicodeRails
 	    end
     end
 
-    class RackMmUnicode
+    class RackMmunicode
     	include MmunicodeRails::Core
 
     	def initialize(app)
