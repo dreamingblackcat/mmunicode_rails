@@ -1,2 +1,2 @@
 puts "Inserting middleware mmunicdoe"
-Rails.application.config.middleware.insert_before(ActionDispatch::ParamsParser,Mmunicode::RackMmunicode)
+Rails.application.config.middleware.insert_before(ActionDispatch::ParamsParser,MmunicodeRails::RackMmunicode)
