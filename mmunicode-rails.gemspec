@@ -5,7 +5,7 @@ require 'mmunicode_rails/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "mmunicode-rails"
-  spec.version       = Mmunicode::VERSION
+  spec.version       = MmunicodeRails::VERSION
   spec.authors       = ["dreamingblackcat"]
   spec.email         = ["dreamingblackcat10@gmail.com"]
   spec.summary       = %q{A gem that provide converting model attributes from zawgyi to unicode(conflicted fonts in myanmar country)}
@@ -23,5 +23,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "minitest", "~>5.0"
   spec.add_development_dependency 'activerecord', '~> 3.0'
   spec.add_development_dependency 'sqlite3', "~>1.3.5"
+  spec.add_runtime_dependency 'rack', "~>1.4.5"
 
 end

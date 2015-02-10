@@ -1,6 +1,7 @@
 require "mmunicode_rails/version"
+require 'rack'
 
-module Mmunicode
+module MmunicodeRails
 
 	module Core		
 	    def uni512zg1(input_text)
@@ -263,20 +264,38 @@ module Mmunicode
   
 	    def self.included(receiver)
 		    receiver.extend         ClassMethods
-		    receiver.send :include, Mmunicode::Core
+		    receiver.send :include, MmunicodeRails::Core
 	    end
 
 	    if defined?(Rails::Railtie)
 	      class Railtie < Rails::Railtie
 	        initializer 'mmunicode_rails.insert_into_active_record' do
 	          ActiveSupport.on_load :active_record do
-	            ActiveRecord::Base.send(:include, Mmunicode::ActiveRecordMacro)
+	            ActiveRecord::Base.send(:include, MmunicodeRails::ActiveRecordMacro)
 	          end
 	        end
 	      end
 	    else
-	      ActiveRecord::Base.send(:include, Mmunicode::ActiveRecordMacro) if defined?(ActiveRecord)
+	      ActiveRecord::Base.send(:include, MmunicodeRails::ActiveRecordMacro) if defined?(ActiveRecord)
 	    end
+    end
+
+    class RackMmUnicode
+    	include MmunicodeRails::Core
+
+    	def initialize(app)
+    		@app = app
+    	end
+
+    	def call(env)
+    		request = Rack::Request.new env
+    		converted_params = []
+    		request.params.each_pair do|key,value|
+    			request.update_param(key, zg12uni51(value))
+    		end
+    		@app.call(env)
+    	end
+
     end
 end
 
