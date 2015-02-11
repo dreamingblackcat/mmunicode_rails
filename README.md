@@ -2,7 +2,9 @@
 
 The gem aims for Myanmar language users who suffered in a never Ending war between Zawgyi and Unicode fonts for Myanmar language.
 
-"mmunicode_rails" provides a class macro for activerecord which allows designated string fields to convert from zawgyi font to unicode font before saving.
+This is by no means a complete solution. It's just a convenient helper gem.
+
+"mmunicode_rails" lets you convert you rails app input data to Myanmar Unicode regardless of which fonts the users used. 
 
 ## Installation
 
@@ -109,4 +111,4 @@ If you would like to contribute then
 
 ##LICENSE
 
-The project is under GPL license. You can view the license terms [here](LICENSE.txt).
+The project is under GNU LESSER GENERAL PUBLIC LICENSE. You can view the license terms [here](LICENSE.txt).
