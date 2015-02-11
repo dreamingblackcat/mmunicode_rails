@@ -288,8 +288,30 @@ module MmunicodeRails
     		@app = app
     	end
 
+
     	def call(env)
     		request = Rack::Request.new env
+    		#This monkey patching is a hack for rack 1.4.5 compatibility required for rails 3.2.*
+    		unless request.respond_to? :update_param then
+    			request.instance_eval do
+	    			def update_param(k, v)
+	    			      found = false
+	    			      if self.GET.has_key?(k)
+	    			        found = true
+	    			        self.GET[k] = v
+	    			      end
+	    			      if self.POST.has_key?(k)
+	    			        found = true
+	    			        self.POST[k] = v
+	    			      end
+	    			      unless found
+	    			        self.GET[k] = v
+	    			      end
+	    			      @params = nil
+	    			      nil
+	    			end
+    			end
+    		end
     		converted_params = []
     		request.params.each_pair do|key,value|
     			puts "#{key}: #{value}"
