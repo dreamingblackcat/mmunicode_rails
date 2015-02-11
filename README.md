@@ -96,20 +96,25 @@ end
 Any form of feedback or contribution is welcome. Please do post an issue if there is something you would like to add as a feature or if you find a bug.
 An issue/pull request can make the contributors of the project very happy. Don't be shy or afraid!
 
-If you would like to contribute then 
+If you would like to contribute then
+
 1. Fork it ( https://github.com/dreamingblackcat/mmunicode_rails/fork )
+
 2. Create your feature branch (`git checkout -b my-new-feature`)
+
 3. Commit your changes (`git commit -am 'Add some feature'`)
+
 4. Push to the branch (`git push origin my-new-feature`)
+
 5. Create a new Pull Request
 
 ## Credits
 
--[Ye Lin Aung](https://github.com/yelinaung) for his awesome [mmfont](https://githubcom/yelinaung/mmfont) gem.
+- [Ye Lin Aung](https://github.com/yelinaung) for his awesome [mmfont](https://githubcom/yelinaung/mmfont) gem.
 
--[Thura Hlaing](https://github.com/trhura) for his excellent [paytan](https://github.com/trhura/paytan) converter generator.
+- [Thura Hlaing](https://github.com/trhura) for his excellent [paytan](https://github.com/trhura/paytan) converter generator.
 
--[Green Like Orange](https://github.com/greenlikeorange) for his great font detection code in [knayi](https://github.com/greenlikeorange/knayi-myscript) script.
+- [Green Like Orange](https://github.com/greenlikeorange) for his great font detection code in [knayi](https://github.com/greenlikeorange/knayi-myscript) script.
 
 ##LICENSE
 
