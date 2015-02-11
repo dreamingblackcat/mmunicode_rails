@@ -192,7 +192,8 @@ module MmunicodeRails
 	      return output_text
 	    end
 
-	    def detect_font(input_text)     
+	    def detect_font(input_text)
+	    	return nil if input_text.nil?      
 	        whitespace = "[\s\t\n]"
 	        priorities = {zawgyi: 2, uni: 1, eng: 3}
 	             #Font Detecting Library
@@ -291,11 +292,27 @@ module MmunicodeRails
     		request = Rack::Request.new env
     		converted_params = []
     		request.params.each_pair do|key,value|
-    			request.update_param(key, zg12uni51(value))
+    			puts "#{key}: #{value}"
+    		end
+    		converted_params = nested_param_traversal(request.params)
+    		
+    		converted_params.each_pair do|key,value|
+    			puts "#{key}: #{value}"
+    			request.update_param(key, value)
     		end
     		@app.call(env)
     	end
 
+    	private
+    		def nested_param_traversal(param,&block)
+    			if param.respond_to? :each_pair
+	    			param.each_pair do|k,v|
+	    				param[k] = nested_param_traversal(v)
+	    			end
+	    		else
+    				zg12uni51(param)
+    			end
+    		end
     end
 end
 

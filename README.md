@@ -22,7 +22,24 @@ Or install it yourself as:
 
 ## Usage
 
-###Example
+Currently mmunicode_rails supports two approach:
+1. Inserting as a middleware that intercepts all params and convert it to Myanmar Unicode
+2. Adding an ActiveRecord class macro that will convert specify string or text fields before saving a model
+
+### Middleware Example
+
+After bundling the gem, a rails generator for mmunicode_rails will be added to your rails app.
+
+Run the generator:
+```sh
+rails generate mmunicode_rails:initializer
+```
+This will produce `config/initializers/mmunicode_rails.rb` file. The file include code for inserting `RackMmunicode` middleware when your rails app is initialized.
+
+And that's it. Now every request parameters(including query string parameters) will get converted to unicode in the rack layer.
+
+###ActiveRecord Example
+
 If there is an ActiveRecord model with schema like this:
 ```ruby
 ActiveRecord::Schema.define(:version => 0) do
@@ -50,7 +67,27 @@ end
 ```
 The above code will raise Error.
 
+### Custommizing
+
+If you don't like both approach, you can include `MmunicodeRails::Core` module for converter methods.(for zg to unicode => `zg12uni51,for unicode to zg => `uni512zg1 , detecting_font => `detect_font`) All accepts an input string. converter methods produce converted output string. `detect_font` returns :unicode, :zawgyi depending on fonts. If it's not Myanmar Font it will return `nil`. If it's unsure of which font, it will prefer :zawgyi.
+
+For example, if you want to register as a controller before_filter:
+```ruby
+class PersonController < ApplicationController
+	include MmunicodeRails::Core
+	before_filter :change_name_to_unicode
+
+	private
+		def change_name_to_unicode
+			zg12uni51(person_params[:name]) if person_params[:name]
+		end
+end
+```
+
+#TODO
+
 ## Contributing
+
 Any form of feedback or contribution is welcome. Please do post an issue if there is something you would like to add as a feature.
 An issue can make the contributors of the project very happy. Don't be shy or afraid!
 
@@ -63,8 +100,9 @@ If you would like to contribute then
 
 ##Credits
 
-[Ko Thura Hlaing](https://github.com/trhura) for his excellent [paytan](://github.com/trhura/paytan) converter generator.
-[Green Like Orange](https://github.com/greenlikeorange) for showing his js font detection code
+[Ye Lin Aung](https://github.com/yelinaung) for his awesome [mmfont](https://githubcom/yelinaung/mmfont) gem.
+[Thura Hlaing](https://github.com/trhura) for his excellent [paytan](https://github.com/trhura/paytan) converter generator.
+[Green Like Orange](https://github.com/greenlikeorange) for showing his js font detection code.
 
 ##LICENSE
 
