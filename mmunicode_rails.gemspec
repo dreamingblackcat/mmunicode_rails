@@ -8,9 +8,9 @@ Gem::Specification.new do |spec|
   spec.version       = MmunicodeRails::VERSION
   spec.authors       = ["dreamingblackcat"]
   spec.email         = ["dreamingblackcat10@gmail.com"]
-  spec.summary       = %q{A gem that provide converting model attributes from zawgyi to unicode(conflicted fonts in myanmar country)}
-  spec.description   = %q{mmunicode_rails provides a class macro for activerecord which allows designated string fields to convert from zawgyi font to unicode font before saving.}
-  spec.homepage      = ""
+  spec.summary       = %q{A gem that provide converting of your rails app input contents from zawgyi to unicode(conflicted fonts in myanmar country)}
+  spec.description   = %q{mmunicode_rails lets you convert you rails app input data to Myanmar Unicode regardless of which fonts the users used.}
+  spec.homepage      = "https://github.com/dreamingblackcat/mmunicode_rails"
   spec.license       = "GPL"
 
   spec.files         = `git ls-files -z`.split("\x0")
