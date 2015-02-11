@@ -38,7 +38,7 @@ This will produce `config/initializers/mmunicode_rails.rb` file. The file includ
 
 And that's it. Now every request parameters(including query string parameters) will get converted to unicode in the rack layer.
 
-###ActiveRecord Example
+### ActiveRecord Example
 
 If there is an ActiveRecord model with schema like this:
 ```ruby
@@ -84,12 +84,15 @@ class PersonController < ApplicationController
 end
 ```
 
-#TODO
+## TODO
+- To add client side js support for font users' convenience
+- To add font embed files in generator.
+- To add helper functions for myanmar word processing(Long Term goal)
 
 ## Contributing
 
-Any form of feedback or contribution is welcome. Please do post an issue if there is something you would like to add as a feature.
-An issue can make the contributors of the project very happy. Don't be shy or afraid!
+Any form of feedback or contribution is welcome. Please do post an issue if there is something you would like to add as a feature or if you find a bug.
+An issue/pull request can make the contributors of the project very happy. Don't be shy or afraid!
 
 If you would like to contribute then 
 1. Fork it ( https://github.com/dreamingblackcat/mmunicode_rails/fork )
@@ -98,11 +101,11 @@ If you would like to contribute then
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create a new Pull Request
 
-##Credits
+## Credits
 
 [Ye Lin Aung](https://github.com/yelinaung) for his awesome [mmfont](https://githubcom/yelinaung/mmfont) gem.
 [Thura Hlaing](https://github.com/trhura) for his excellent [paytan](https://github.com/trhura/paytan) converter generator.
-[Green Like Orange](https://github.com/greenlikeorange) for showing his js font detection code.
+[Green Like Orange](https://github.com/greenlikeorange) for his great font detection code in [knayi](https://github.com/greenlikeorange/knayi-myscript) script.
 
 ##LICENSE
 
