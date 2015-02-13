@@ -193,7 +193,8 @@ module MmunicodeRails
 	    end
 
 	    def detect_font(input_text)
-	    	return nil if input_text.nil?      
+	    	#do nothing if nil text or not utf8
+	    	return nil if input_text.nil? || input_text.encoding != Encoding.find("UTF-8")     
 	        whitespace = "[\s\t\n]"
 	        priorities = {zawgyi: 2, uni: 1, eng: 3}
 	             #Font Detecting Library
