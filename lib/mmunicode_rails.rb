@@ -329,15 +329,16 @@ module MmunicodeRails
     	private
     		def nested_param_traversal(param)
     			if param.respond_to? :each_pair
-	    			param.each_pair do|k,v|
-	    				param[k] = nested_param_traversal(v)
-	    			end
-	    		elsif param.respond_to? :each
-	    			param.map do |item|
-	    				nested_param_traversal(item)
-	    			end
-	    		else
-    				zg12uni51(param)
+    			        param.each_pair do|k,v|
+    			                param[k] = nested_param_traversal(v)
+    			        end
+    			elsif param.is_a? Array
+    			        param.map do |item|
+    			                nested_param_traversal(item)
+    			        end
+    			else
+    				# convert only strings , otherwise untouch
+    			    if param.is_a? String then zg12uni51(param) else param end
     			end
     		end
     end
