@@ -1,9 +1,8 @@
-require "mmunicode_rails/version"
+require 'mmunicode_rails/version'
 require 'rack'
 
 module MmunicodeRails
-
-	module Core		
+	module Core
 	    def uni512zg1(input_text)
 	      return input_text unless detect_font(input_text) == :uni
 	      output_text = input_text
