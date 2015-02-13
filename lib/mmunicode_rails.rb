@@ -327,10 +327,14 @@ module MmunicodeRails
     	end
 
     	private
-    		def nested_param_traversal(param,&block)
+    		def nested_param_traversal(param)
     			if param.respond_to? :each_pair
 	    			param.each_pair do|k,v|
 	    				param[k] = nested_param_traversal(v)
+	    			end
+	    		elsif param.respond_to? :each
+	    			param.map do |item|
+	    				nested_param_traversal(item)
 	    			end
 	    		else
     				zg12uni51(param)
