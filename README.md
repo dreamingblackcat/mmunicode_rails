@@ -6,6 +6,8 @@ This is by no means a complete solution. It's just a convenient helper gem.
 
 "mmunicode_rails" lets you convert you rails app input data to Myanmar Unicode regardless of which fonts the users used. 
 
+Supported for rails 4.x and 3.x
+
 ## Installation
 
 Add this line to your application's Gemfile:
