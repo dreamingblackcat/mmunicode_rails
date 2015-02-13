@@ -112,7 +112,7 @@ If you would like to contribute then
 
 ## Credits
 
-- [Ye Lin Aung](https://github.com/yelinaung) for his awesome [mmfont](https://githubcom/yelinaung/mmfont) gem.
+- [Ye Lin Aung](https://github.com/yelinaung) for his awesome [mmfont](https://github.com/yelinaung/mmfont) gem.
 
 - [Thura Hlaing](https://github.com/trhura) for his excellent [paytan](https://github.com/trhura/paytan) converter generator.
 
