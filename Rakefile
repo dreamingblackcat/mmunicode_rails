@@ -1,6 +1,11 @@
-require "bundler/gem_tasks"
+require 'bundler/gem_tasks'
+require 'rake/testtask'
 
-desc "Run Tests!"
-task :test,[:environment]  do|t,args|
-	system "ruby spec/*_spec.rb"
+desc 'Run Tests!'
+Rake::TestTask.new do |t|
+  t.libs << 'lib'
+  t.libs << 'spec'
+  system 'ruby spec/*_spec.rb'
 end
+
+task default: :test
