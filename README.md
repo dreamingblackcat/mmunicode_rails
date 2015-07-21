@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/dreamingblackcat/mmunicode_rails.svg?branch=master)](https://travis-ci.org/dreamingblackcat/mmunicode_rails)
 # mmunicode-rails
 
 The gem aims for Myanmar language users who suffered in a never Ending war between Zawgyi and Unicode fonts for Myanmar language.
