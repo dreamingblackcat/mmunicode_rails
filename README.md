@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/dreamingblackcat/mmunicode_rails.svg?branch=master)](https://travis-ci.org/dreamingblackcat/mmunicode_rails)  [![Gem Version](https://badge.fury.io/rb/mmunicode_rails.svg)](http://badge.fury.io/rb/mmunicode_rails)
+[![Build Status](https://travis-ci.org/dreamingblackcat/mmunicode_rails.svg?branch=master)](https://travis-ci.org/dreamingblackcat/mmunicode_rails)  [![Gem Version](https://badge.fury.io/rb/mmunicode_rails.svg)](http://badge.fury.io/rb/mmunicode_rails) ![](http://ruby-gem-downloads-badge.herokuapp.com/mmunicode_rails?type=total)
 # mmunicode-rails
 
 The gem aims for Myanmar language users who suffered in a never Ending war between Zawgyi and Unicode fonts for Myanmar language.
