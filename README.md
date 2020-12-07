@@ -119,6 +119,6 @@ If you would like to contribute then
 
 - [Green Like Orange](https://github.com/greenlikeorange) for his great font detection code in [knayi](https://github.com/greenlikeorange/knayi-myscript) script.
 
-##LICENSE
+## LICENSE
 
 The project is under GNU LESSER GENERAL PUBLIC LICENSE. You can view the license terms [here](LICENSE.txt).
