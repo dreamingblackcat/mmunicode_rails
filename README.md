@@ -83,9 +83,9 @@ class PersonController < ApplicationController
 	before_filter :change_name_to_unicode
 
 	private
-		def change_name_to_unicode
-			zg12uni51(person_params[:name]) if person_params[:name]
-		end
+	def change_name_to_unicode
+	  zg12uni51(person_params[:name]) if person_params[:name]
+	end
 end
 ```
 
