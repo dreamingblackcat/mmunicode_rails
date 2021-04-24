@@ -7,7 +7,7 @@ This is by no means a complete solution. It's just a convenient helper gem.
 
 "mmunicode_rails" lets you convert you rails app input data to Myanmar Unicode regardless of which fonts the users used. 
 
-Supported for rails 4.x and 3.x
+Supported for rails 3.x, 4.x, 5.x and 6.x
 
 ## Installation
 
@@ -83,9 +83,9 @@ class PersonController < ApplicationController
 	before_filter :change_name_to_unicode
 
 	private
-		def change_name_to_unicode
-			zg12uni51(person_params[:name]) if person_params[:name]
-		end
+	def change_name_to_unicode
+	  zg12uni51(person_params[:name]) if person_params[:name]
+	end
 end
 ```
 
